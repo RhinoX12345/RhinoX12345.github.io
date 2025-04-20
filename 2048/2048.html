@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2048</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0">
+        <style>
+            body{
+                width:max-content;
+                font-family:"Segoe UI";
+                font-size: 15px;
+            }
+            table{
+                color:black;
+                border:1px solid black;
+                border-spacing:0;
+                text-align:center;
+                font-size:20px;
+            }
+            #game #header{
+                background-color:rgb(195, 255, 217);
+                height: 60px
+            }
+            #game tr{
+                height: 60px
+            }
+            #game tr td{
+                width: 60px;
+                padding:0;
+                border:0.3px solid black;
+                text-align: center;
+            }
+        </style>
+        <script>
+
+            function setup(){
+                rows = 4;
+                cols = 4;
+                score = 0;
+                tileColors = {
+                    0: "rgb(255, 255, 255)",
+                    2: "rgb(238, 228, 218)",
+                    4: "rgb(237, 223, 199)",
+                    8: "rgb(242, 175, 117)",
+                    16: "rgb(244, 147, 93)",
+                    32: "rgb(245, 122, 89)",
+                    64: "rgb(245, 91, 46)",
+                    128: "rgb(238, 204, 109)",
+                    256: "rgb(238, 201, 91)",
+                    512: "rgb(238, 197, 72)",
+                    1024: "rgb(238, 194, 51)",
+                    2048: "rgb(238, 191, 26)",
+                    4096: "rgb(60, 58, 50)",
+                    8192: "rgb(107, 189, 0)",
+                    16384: "rgb(99, 182, 0)",
+                    32768: "rgb(91, 166, 0)",
+                    65536: "rgb(80, 136, 9)"
+
+                }
+                board = [];
+                for (let i=0; i<rows*cols; i++){board.push(0)}
+                tiles = [];
+                for (let i=1; i<=rows; i++){
+                    document.getElementById("game").innerHTML += `<tr id=${i}></tr>`
+                    for (let j=1; j<=cols; j++){
+                        tiles.push(`${i}${j}`);
+                        document.getElementById(`${i}`).innerHTML += `<td id=${i}${j}></td>`
+                    }
+                }
+                spawnNewTiles();
+
+            }
+
+            function keyInput(event){
+                if (event.repeat==true){return}
+                let key = event.key;
+                switch (key.toLowerCase()){
+                    case "w":
+                        check("up")
+                        break;
+                    case "a":
+                        check("left")
+                        break;
+                    case "s":
+                        check("down")
+                        break;
+                    case "d":
+                        check("right")
+                        break;
+                    case "arrowup":
+                        check("up")
+                        break;
+                    case "arrowleft":
+                        check("left")
+                        break;
+                    case "arrowdown":
+                        check("down")
+                        break;
+                    case "arrowright":
+                        check("right")
+                        break;
+                    case "r":
+                        start();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            
+            function check(dir/*up,down,left,right*/){
+                let boardCopy = [...board];
+                if (dir == "up"){
+                    for (let i=0; i<rows; i++){
+                        col = [];
+                        for (let j=i; j<board.length; j+=rows){
+                            if (board[j]!=0){
+                                col.push(board[j]);
+                            }
+                        }
+                        for (let j=0; j<col.length-1; j++){
+                            if (col[j]==col[j+1]){
+                                col[j]*=2;
+                                col.splice(j+1,1);
+                                score+=col[j];
+                            }
+                        }
+                        while (col.length<rows){
+                            col.push(0);
+                        }
+                        for (let j=i; j<board.length; j+=rows){
+                            if (col.length==0){break;}
+                            board[j] = col[0];
+                            col.splice(0,1);
+                        }
+                    }
+                } else if (dir == "left"){
+                    for (let i=0; i<rows; i++){
+                        row = [];
+                        for (let j=i*cols; j<cols*(i+1); j+=1){
+                            if (board[j]!=0){
+                                row.push(board[j]);
+                            }
+                        }
+                        for (let j=0; j<row.length-1; j++){
+                            if (row[j]==row[j+1]){
+                                row[j]*=2;
+                                row.splice(j+1,1);
+                                score+=row[j];
+                            }
+                        }
+                        while (row.length<cols){
+                            row.push(0);
+                        }
+                        for (let j=i*cols; j<cols*(i+1); j+=1){
+                            if (row.length==0){break;}
+                            board[j] = row[0];
+                            row.splice(0,1);
+                        }
+                    }
+                } else if (dir == "down"){
+                    for (let i=0; i<cols; i++){
+                        col = [];
+                        for (let j=board.length-cols+i; j>=0; j-=rows){
+                            if (board[j]!=0){
+                                col.push(board[j]);
+                            }
+                        }
+                        for (let j=0; j<col.length-1; j++){
+                            if (col[j]==col[j+1]){
+                                col[j]*=2;
+                                col.splice(j+1,1);
+                                score+=col[j];
+                            }
+                        }
+                        while (col.length<rows){
+                            col.push(0);
+                        }
+                        for (let j=board.length-cols+i; j>=0; j-=rows){
+                            if (col.length==0){break;}
+                            board[j] = col[0]
+                            col.splice(0,1);
+                        }
+                    }
+                } else if (dir == "right"){
+                    for (let i=0; i<rows; i++){
+                        row = [];
+                        for (let j=rows*(i+1)-1; j>=cols*i; j-=1){
+                            if (board[j]!=0){
+                                row.push(board[j]);
+                            }
+                        }
+                        for (let j=0; j<row.length-1; j++){
+                            if (row[j]==row[j+1]){
+                                row[j]*=2;
+                                row.splice(j+1,1);
+                                score+=row[j];
+                            }
+                        }
+                        while (row.length<cols){
+                            row.push(0);
+                        }
+                        for (let j=rows*(i+1)-1; j>=cols*i; j-=1){
+                            if (row.length==0){break;}
+                            board[j] = row[0]
+                            row.splice(0,1);
+                        }
+                    }
+                }
+                let check = false;
+                for (let i in board){
+                    if (board[i] != boardCopy[i]){
+                        check = true;
+                    }
+                }
+                if (check){
+                    spawnNewTiles()
+                } else {
+                    return
+                }
+            }
+
+            function updateBoard(){
+                document.getElementById("header2").innerHTML = score;
+                for (let i=0; i<rows; i++){
+                    for (let j=0; j<cols; j++){
+                        if (board[i*cols+j]!=0){
+                            document.getElementById(`${i+1}${j+1}`).innerHTML = board[i*cols+j];
+                            document.getElementById(`${i+1}${j+1}`).style.backgroundColor = tileColors[board[i*cols+j]];
+                        } else {
+                            document.getElementById(`${i+1}${j+1}`).innerHTML = "";
+                            document.getElementById(`${i+1}${j+1}`).style.backgroundColor = tileColors[0];
+                        }
+                    }
+                }
+            }
+
+            function up(){
+                console.log("up")
+            }
+            function down(){
+                console.log("down")
+            }
+            function left(){
+                console.log("left")
+            }
+            function right(){
+                console.log("right")
+            }
+
+            function spawnNewTiles(){
+                let empty = [];
+                for (let i in board){
+                    if (board[i]==0){
+                        empty.push(tiles[i]);
+                    }
+                }
+                let chosen = [];
+                let rand = Math.floor(Math.random()*empty.length)%empty.length
+                chosen.push(empty[rand])
+                empty.splice(rand,1)
+                if (Math.round(Math.random())==1 && empty.length>0){
+                    rand = Math.floor(Math.random()*empty.length)%empty.length
+                    chosen.push(empty[rand])
+                    empty.splice(rand,1)
+                    if (Math.round(Math.random())==1 && empty.length>0){
+                        rand = Math.floor(Math.random()*empty.length)%empty.length
+                        chosen.push(empty[rand])
+                        empty.splice(rand,1)
+                    }
+                }
+                try{
+                    for (let i of chosen){
+                        let newVal = 2+Math.round(Math.random())*2
+                        //document.getElementById(i).innerHTML += `${newVal}`;
+                        board[tiles.indexOf(i)] = newVal;
+                        updateBoard();
+                    }
+                } catch {
+                    console.log("Die", score);
+                }
+                
+            }
+
+
+        </script>
+    </head>
+    <body onload="setup()" onkeydown="keyInput(event)">
+        <table id="game">
+            <tr id="header">
+                <td id="header1" colspan="2">2048</td>
+                <td id="header2" colspan="2">Score</td>
+            </tr>
+        </table>
+    </body>
+</html>
