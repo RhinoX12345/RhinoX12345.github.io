@@ -1,0 +1,239 @@
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
+#nav-menu {
+    z-index: 10;
+    
+}
+#nav-menu #nav-links {
+    z-index: inherit;
+    translate: -100%;
+    background-color: #efd7b3a8;
+    position: fixed;
+    top: 12vh;
+    left: 0vw;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    z-index: 10;
+    padding: 1vh 2vh 1vh 1vh;
+    border-bottom-right-radius: 3vh;
+}
+#nav-menu #nav-links:hover {
+    translate:0%; 
+}
+#nav-menu #nav-links a {
+    background-color: #d9d9d9;
+    width: fit-content;
+    width: 95%;
+    min-width: 13vh;
+    margin: 1vh;
+    padding: 0.5vh 1vh;
+    border-radius: 100vh;
+    color: #000000;
+    text-align: left;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 3vh;
+    font-weight: 700;
+}
+#nav-button {
+    z-index: inherit;
+    background: #efd7b3;
+    width: 14vh;
+    height: 12vh;
+    padding: 2vh 2vh;
+    position: fixed;
+}
+#rectangle-24 {
+    background: #000000;
+    border-radius: 100vh;
+    height: 1.9vh;
+    margin-bottom: 1.1vh;
+}
+#rectangle-25 {
+    background: #000000;
+    border-radius: 100vh;
+    height: 1.9vh;
+    margin: 1.1vh 0;
+}
+#rectangle-26 {
+    background: #000000;
+    border-radius: 100vh;
+    height: 1.9vh;
+    margin-top: 1.1vh;
+}
+
+#community *{
+    box-sizing: border-box;
+}
+#community {
+    background: linear-gradient(
+        180deg,
+        rgba(23, 29, 43, 1) 0%,
+        rgba(29, 38, 60, 1) 25%,
+        rgba(34, 47, 76, 1) 50%,
+        rgba(117, 56, 129, 1) 100%
+    );
+    height:250vh;
+    overflow: hidden;
+}
+
+
+.section-header {
+    color: #ffffff;
+    text-align: center;
+    font-family: Cambria;
+    font-size: 4vw;
+    font-weight: 400;
+    height: 8vh;
+    width: max-content;
+    max-width: 80vw;
+    position: absolute;
+    translate: -50%;
+    left: 50vw;
+}
+.section-link {
+    color: #ffffff;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 3vw;
+    font-weight: 400;
+    text-decoration: underline;
+    position: absolute;
+    left: 23vw;
+    max-width: 60vw;
+}
+.logoSmall {
+    max-width: 7vw;
+    height: auto;
+    left:17vw;
+    translate:-50%;
+}
+.section-description {
+    color: #ffffff;
+    text-align: left;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 2.5vw;
+    font-weight: 400;
+    position:absolute;
+    left:12.5vw;
+    max-width: 75vw;
+}
+
+
+#youtube-header {
+    top: 30vh;
+}
+#youtube-logo {
+    position: absolute;
+    top: 45vh;
+    object-fit: contain;
+    aspect-ratio: 99.68/69;
+}
+#youtube-link {
+    top: 47vh;
+}
+#youtube-description {
+    top: 60vh;
+    height: 20vh;
+}
+
+
+#discord-header {
+    top: 85vh;
+}
+#discord-logo {
+  position: absolute;
+  top: 95vh;
+  object-fit: contain;
+  aspect-ratio: 101.85/101;
+}
+#discord-link {
+  top: 97vh;
+}
+#discord-description {
+    top: 110vh;
+    height: 20vh;
+}
+
+
+#speedrunning-header {
+    top: 135vh;
+}
+#speedrun-logo {
+    position: absolute;
+    top: 150vh;
+    object-fit: contain;
+    aspect-ratio: 1;
+}
+#speedrunning-link {
+    top: 152vh;
+}
+#speedrunning-description {
+    top: 165vh;
+    height: 20vh;
+}
+
+
+#modding-header {
+    top: 190vh;
+}
+#everest-logo {
+    height: 25vh;
+    max-width: 50vw;
+    position: absolute;
+    left: 50vw;
+    translate: -50%;
+    top: 200vh;
+    object-fit:contain ;
+    aspect-ratio: 548/129;
+}
+#modding-description {
+    top: 225vh;
+    height: 20vh;
+}
+
+
+#banner {
+    background: #e7d6bd;
+    width: 100vw;
+    min-height: 12vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 5;
+}
+#logo-raster-celeste {
+    position:fixed;
+    top: 1vh;
+    left: 50%;
+    translate: -50%;
+    height: 10vh;
+    max-width: 40vw;
+    object-fit: contain;
+    aspect-ratio: 413.04/97;
+    z-index: 5;
+}
+#search {
+    color: #000000;
+    text-align: right;
+    font-family: "Inter-Bold", sans-serif;
+    font-size: 5vh;
+    font-weight: 700;
+    position: fixed;
+    right: 12vh;
+    top: 3vh;
+    height: 12vh;
+    max-width: 15vw;
+    overflow: hidden;
+}
+#magnifying-glass {
+    width: 12vh;
+    height: 12vh;
+    position: fixed;
+    right: 0vw;
+    top: 0vh;
+    object-fit: contain;
+    aspect-ratio: 1;
+}
