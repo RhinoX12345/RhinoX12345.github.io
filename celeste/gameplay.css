@@ -2,7 +2,6 @@
 
 .gameplay {
     left: 0;
-    height: fit-content;
     z-index: 0;
     position: relative;
     overflow: hidden;
@@ -12,6 +11,12 @@
             rgba(34, 47, 76, 1) 50%,
             rgba(117, 56, 129, 1) 100%);
     width: 100%;
+    height: 100%;
+    background-image: url("celeste-summit-b_320x682(2).png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
 .gameplay .lvl-bg {
@@ -19,57 +24,40 @@
     width: 100%;
     top: 0;
     left: 0;
+    z-index: 0;
 }
 
 .movement-desc {
-    background-color: #AAAAAA;
-    position: absolute;
     z-index: 3;
+    font-size: 4vh;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    letter-spacing: 0;
+    line-height: normal;
+    width: 90%;
+    margin: 5%;
+}
+
+.movement-desc p {
+    width: 50%;
+    padding: 1% 3% 1% 3%;
+    background-color: #888888AA;
+
 }
 
 .basic-desc {
-    top: 321px;
-    left: 229px;
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 29px;
-    letter-spacing: 0;
-    line-height: normal;
+    float: left;
 }
 
 .dash-desc {
-    width: 491px;
-    top: 335px;
-    left: 974px;
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 29px;
-    letter-spacing: 0;
-    line-height: normal;
+    float: right;
 }
 
-.demo-desc {
-    width: 491px;
-    top: 950px;
-    left: 781px;
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 29px;
-    letter-spacing: 0;
-    line-height: normal;
+.demo-dash-desc {
+    float: left;
 }
 
 .coyote-desc {
-    width: 491px;
-    top: 1797px;
-    left: 228px;
-    font-family: "Inter-Regular", Helvetica;
-    font-weight: 400;
-    color: #000000;
-    font-size: 29px;
-    letter-spacing: 0;
-    line-height: normal;
+    float: right;
 }
