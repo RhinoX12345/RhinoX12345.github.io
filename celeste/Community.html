@@ -2,79 +2,59 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1">
     <meta charset="utf-8">
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="community.css">
     <title>Community Page</title>
-    <script>
-        function openNav() {
-            document.getElementById("nav-links").style.translate = "0%";
-        }
-        function closeNav() {
-            document.getElementById("nav-links").style.translate = "-100%";
-        }
-    </script>
 </head>
 
 <body>
-    <div id="nav-menu" onmouseleave="closeNav()">
-        <div id="nav-button" onmouseenter="openNav()">
-            <div id="rectangle-24"></div>
-            <div id="rectangle-25"></div>
-            <div id="rectangle-26"></div>
-        </div>
-        <div id="nav-links">
-            <a id="nav-homepage" href="">Home Page</a>
-            <a id="nav-characters" href="">Characters</a>
-            <a id="nav-gameplay" href="">Gameplay</a>
-            <a id="nav-community" href="">Community</a>
-            <a id="nav-store" href="">Store</a>
-        </div>
+    <div class="header">
+        <div><a href="character.html"><div class="text-nav" href="character.html">Characters</div></a></div>
+        <div><a href="gameplay.html"><div class="text-nav">Gameplay</div></a></div>
+        <div><a href="index.html"><img class="img-nav" src="logo-raster-celeste-2.png"></a></div>
+        <div><a href="store.html"><div class="text-nav">Shop</div></a></div>
+        <div><a href="community.html"><div class="text-nav">Community</div></a></div>
     </div>
 
-    <div id="banner">
-        <img id="logo-raster-celeste" src="logo-raster-celeste.png" draggable="false">
-        <div id="search">__________</div>
-        <img id="magnifying-glass" src="magnifying-glass.png" />
-    </div>
 
-    <div id="community">
-        <div id="youtube-header" class="section-header">Celeste Community YouTube</div>
+    <div class="community">
+        <div class="section-header">Celeste Community YouTube</div>
         <a href="https://www.youtube.com/@CelesteCommunity">
-            <img id="youtube-logo" class="logoSmall" src="youtube_logo.png" />
-            <div id="youtube-link" class="section-link">@CelesteCommunity</div>
+            <img class="youtube-logo logoSmall" src="youtube_logo.png" />
+            <div class="section-link">@CelesteCommunity</div>
         </a>
-        <div id="youtube-description" class="section-description">
+        <div class="section-description">
             The Celeste Community Channel showcases fan creations, level spotlights,
             speedrun events, and custom mods—all made by and for the community!
         </div>
 
 
-        <div id="discord-header" class="section-header">Official Celeste Discord</div>
+        <div class="section-header">Official Celeste Discord</div>
         <a href="https://discord.com/invite/celeste">
-            <img id="discord-logo" class="logoSmall" src="discord_logo.png" />
-            <div id="discord-link" class="section-link">Mt. Celeste Climbing Association</div>
+            <img class="discord-logo logoSmall" src="discord_logo.png" />
+            <div class="section-link">Mt. Celeste Climbing Association</div>
         </a>
-        <div id="discord-description" class="section-description">
+        <div class="section-description">
             The official Celeste Discord is where players, modders, and speedrunners
             gather to chat, share levels, get help, and organize events. Everyone's
             welcome!
         </div>
 
-        <div id="speedrunning-header" class="section-header">Celeste Speedrunning</div>
+        <div class="section-header">Celeste Speedrunning</div>
         <a href="https://www.speedrun.com/celeste">
-            <img id="speedrun-logo" class="logoSmall" src="speedrun_logo.png" />
-            <div id="speedrunning-link" class="section-link">Speedrunning Leaderboards</div>
+            <img class="speedrun-logo logoSmall" src="speedrun_logo.png" />
+            <div class="section-link">Speedrunning Leaderboards</div>
         </a>
-        <div id="speedrunning-description" class="section-description">
+        <div class="section-description">
             Celeste is one of the most popular modern speedrunning games, thanks to its
             precise controls and creative movement tech.
         </div>
 
-        <div id="modding-header" class="section-header">Celeste Modding Scene</div>
-        <img id="everest-logo" src="everest_logo.png" />
-        <div id="modding-description" class="section-description">
+        <div class="section-header">Celeste Modding Scene</div>
+        <img class="everest-logo" src="everest_logo.png" />
+        <div class="section-description">
             With tools like Everest and Ahorn, the modding community has built thousands
             of custom levels, total conversions, and even new mechanics.
         </div>
