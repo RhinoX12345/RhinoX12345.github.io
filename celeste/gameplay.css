@@ -1,0 +1,75 @@
+/* GAMEPLAY PAGE */
+
+.gameplay {
+    left: 0;
+    height: fit-content;
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg,
+            rgba(23, 29, 43, 1) 0%,
+            rgba(29, 38, 60, 1) 25%,
+            rgba(34, 47, 76, 1) 50%,
+            rgba(117, 56, 129, 1) 100%);
+    width: 100%;
+}
+
+.gameplay .lvl-bg {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.movement-desc {
+    background-color: #AAAAAA;
+    position: absolute;
+    z-index: 3;
+}
+
+.basic-desc {
+    top: 321px;
+    left: 229px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 29px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.dash-desc {
+    width: 491px;
+    top: 335px;
+    left: 974px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 29px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.demo-desc {
+    width: 491px;
+    top: 950px;
+    left: 781px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 29px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.coyote-desc {
+    width: 491px;
+    top: 1797px;
+    left: 228px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 29px;
+    letter-spacing: 0;
+    line-height: normal;
+}

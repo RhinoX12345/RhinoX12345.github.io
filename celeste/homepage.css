@@ -1,0 +1,57 @@
+/* HOMEPAGE */
+
+.home-background {
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    object-fit: fill;
+}
+
+.index {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    left: 0;
+    height: fit-content;
+    z-index: 3;
+    padding: 10vh;
+}
+
+
+.index .game-description {
+    width: 80vw;
+    left: 0;
+    font-family: "Average Sans-Regular", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 4.5vh;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    margin: 1vh;
+}
+
+.index .short-description {
+    width: 100%;
+    font-family: "Average Sans-Regular", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 4.5vh;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+}
+
+ul {
+    list-style:outside;
+}
+
+.index .celeste-logo {
+    width: 50%;
+    top: 0;
+    margin: auto;
+    position: relative;
+    object-fit: contain;
+}
