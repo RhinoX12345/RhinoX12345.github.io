@@ -8,7 +8,7 @@
     width: 100%;
     height: fit-content;
     z-index: 3;
-    padding: 3vh;
+    padding: 3vh 3vh 0;
     position: relative;
 }
 
@@ -19,7 +19,7 @@
     margin: auto;
 }
 
-.characters .madeline-TB {
+.characters .textbox {
     width: auto;
     height: 19vh;
     left: 0;
@@ -29,9 +29,9 @@
 .characters .quote {
     position: absolute;
     top: 40%;
-    left: 20%;
+    left: 17%;
     margin: auto;
-    width: fit-content;
+    width: 80%;
     font-family: "Inter-BoldItalic", Helvetica;
     font-weight: 700;
     font-style: italic;
@@ -45,8 +45,8 @@
 
 .characters .description {
     position: absolute;
-    width: 50vw;
-    left: 35vw;
+    width: 39vw;
+    left: 50vw;
     top: 23vh;
     font-family: "Inter-BoldItalic", Helvetica;
     font-weight: 700;
@@ -63,6 +63,7 @@
     position: absolute;
     width: 4vw;
     height: 16vw;
+    z-index: 5;
 }
 
 .characters .cycle-right {
@@ -71,6 +72,7 @@
     width: 4vw;
     height: 16vw;
     transform: scaleX(-1);
+    z-index: 5;
 }
 
 .character-slides {
@@ -81,47 +83,27 @@
 
 .characters .character-gallery {
     justify-content: center;
-    vertical-align: bottom;
     display: flex;
     flex-direction: row;
-    width: fit-content;
+    justify-content: space-between;
     margin: auto 10vw;
+    height: 45vh;
 }
 
 .characters .small {
     height: 22vh;
     width: 20vh;
     object-fit: contain;
-    margin: 20vh 3vw 0;
+    margin: auto 3vw 0;
 
 }
 
 .characters .large {
-    height: 50vh;
+    max-height: 45vh;
+    max-width: 45vh;
     object-fit: contain;
-    margin: 0 0 0;
+    margin: auto 0 0;
 }
-/* 
-.characters .madeline-l {
-    height: 20vh;
-    object-fit: contain;
-}
-
-.characters .badeline-s {
-    height: 20vh;
-    object-fit: contain;
-}
-
-.characters .granny-s {
-    height: 20vh;
-    object-fit: contain;
-}
-
-.characters .theo-s {
-    height: 20vh;
-    object-fit: contain;
-} */
-
 .floor {
     position: absolute;
     width: 100%;
@@ -133,8 +115,6 @@
 }
 
 .characters .shadow {
-    bottom: 0;
-    width: 15vw;
-    left: 12vw;
+    bottom: 1px;
     position: absolute;
 }

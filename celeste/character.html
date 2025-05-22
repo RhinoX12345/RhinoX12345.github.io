@@ -8,13 +8,96 @@
     <link rel="stylesheet" href="character.css">
     <title>Characters Page</title>
     <link rel="icon" href="celeste-favicon.png">
+
+    <script>
+        function setup(){
+            characterList = ["madeline", "badeline", "granny", "theo"];
+            textboxes = ["MadelineTB.png","BadelineTB.png","GrannyTB.png","TheoTB.png"];
+            quotes = [
+                "“This is it, Madeline. Just breathe. You can do this.”",
+                "“You are not a mountain climber.”",
+                "“Funerals are for all you suckers stuck living without me”",
+                "“Selfies are always worth it, dude.”"
+            ];
+            descriptions = [
+                "Madeline is the main protagonist of Celeste, a brave and introspective young woman who decides to climb Celeste Mountain as a personal challenge. Though she struggles with anxiety, self-doubt, and feelings of inadequacy, her journey is one of self-discovery and emotional growth. Madeline is determined, compassionate, and deeply human, making her story both relatable and inspiring.",
+                "Badeline is the dark, inner reflection of Madeline, brought to life by the mountain's mysterious power. She represents Madeline's fears, anxiety, and negative thoughts—everything Madeline tries to suppress. Though she first appears as an enemy, Badeline ultimately becomes a symbol of self-acceptance, showing that true strength comes from embracing every part of oneself.",
+                "Granny, also known as the Old Woman, is a mysterious and wise resident of Celeste Mountain. With her teasing laugh and cryptic advice, she guides Madeline in unexpected ways. Though she may seem odd at first, Granny understands the mountain's magic and challenges, offering insight that helps Madeline navigate both the climb and her inner turmoil.",
+                "Theo is a friendly, upbeat traveler Madeline meets during her climb. Originally from Seattle, Theo is exploring the mountain for adventure and inspiration, often seen taking selfies and sharing stories. His warm personality and supportive nature make him a comforting presence for Madeline, providing moments of levity and emotional support when she needs it most."
+            ];
+            descriptionAlign = ["right", "right", "left", "left"]
+            selected = "";
+            for (let i of document.getElementsByClassName("large")){
+                if (selected == ""){
+                    selected = i.id;
+                } else {
+                    i.className = "small";
+                }
+            }
+            updateShadow();
+            updateLayout();
+        }
+
+        function updateShadow(){
+            //let shadowRect = document.getElementById("shadow").getBoundingClientRect();
+            let selectedRect = document.getElementById(selected).getBoundingClientRect();
+            console.log(selectedRect)
+            document.getElementById("shadow").style.width = selectedRect.width+"px";
+            document.getElementById("shadow").style.left = (selectedRect.x-15)+"px";
+        }
+
+        function updateLayout(){
+            let index = characterList.indexOf(selected);
+            document.getElementById("textbox").src = textboxes[index];
+            document.getElementById("quote").innerHTML = quotes[index];
+            document.getElementById("description").innerHTML = descriptions[index];
+            document.getElementById("description").style.textAlign = descriptionAlign[index];
+            console.log(index)
+            switch (index){
+                default:
+                break
+                case 0:
+                document.getElementById("description").style.left = "29vw";
+                document.getElementById("description").style.width = "60vw";
+                break
+                case 1:
+                document.getElementById("description").style.left = "50vw";
+                document.getElementById("description").style.width = "39vw";
+                break
+                case 2:
+                document.getElementById("description").style.left = "11vw";
+                document.getElementById("description").style.width = "39vw";
+                break
+                case 3:
+                document.getElementById("description").style.left = "11vw";
+                document.getElementById("description").style.width = "60vw";
+                break
+            }
+        }
+
+        function cycleLeft(){
+            document.getElementById(selected).className = "small";
+            selected = characterList[(characterList.indexOf(selected)-1+characterList.length)%characterList.length];
+            document.getElementById(selected).className = "large";
+            updateShadow()
+            updateLayout();
+        }
+
+        function cycleRight(){
+            document.getElementById(selected).className = "small";
+            selected = characterList[(characterList.indexOf(selected)+1)%characterList.length];
+            document.getElementById(selected).className = "large";
+            updateShadow();
+            updateLayout();
+        }
+    </script>
 </head>
 
-<body>
+<body onload="setup()" onresize="updateShadow()">
     <div class="header">
         <div><a href="character.html"><div class="text-nav" href="character.html">Characters</div></a></div>
         <div><a href="gameplay.html"><div class="text-nav">Gameplay</div></a></div>
-        <div><a href="index.html"><img class="img-nav" src="logo-raster-celeste-2.png"></a></div>
+        <div><a href="index.html"><img draggable="false" class="img-nav" src="logo-raster-celeste-2.png"></a></div>
         <div><a href="store.html"><div class="text-nav">Shop</div></a></div>
         <div><a href="community.html"><div class="text-nav">Community</div></a></div>
     </div>
@@ -22,25 +105,25 @@
     <div class="characters">
         
         <div class="quoteGroup">
-            <img class="madeline-TB" src="MadelineTB.png">
-            <div class="quote">“This is it, Madeline. Just breathe. You can do this.”</div>
+            <img draggable="false" id="textbox" class="textbox" src="MadelineTB.png">
+            <div id="quote" class="quote">“This is it, Madeline. Just breathe. You can do this.”</div>
         </div>
-        <div class="description">
+        <div id="description" class="description">
             Madeline is the main protagonist of Celeste, a brave and introspective young woman who decides to climb
             Celeste Mountain as a personal challenge. Though she struggles with anxiety, self-doubt, and feelings of
             inadequacy, her journey is one of self-discovery and emotional growth. Madeline is determined,
             compassionate, and deeply human, making her story both relatable and inspiring.
         </div>
-        <img class="cycle-left" src="Polygon1.png">
-        <img class="cycle-right" src="Polygon1.png">
+        <img draggable="false" class="cycle-left" src="Polygon1.png" onclick="cycleLeft()">
+        <img draggable="false" class="cycle-right" src="Polygon1.png" onclick="cycleRight()">
         <div class="character-slides">
             <div class="character-gallery">
-                <img class="madeline-l large" src="Madeline.png">
-                <img class="badeline-s small" src="Badeline.png">
-                <img class="granny-s small" src="Granny.png">
-                <img class="theo-s small" src="Theo.png">
+                <img draggable="false" id="madeline" class="large" src="Madeline.png">
+                <img draggable="false" id="badeline" class="small" src="Badeline.png">
+                <img draggable="false" id="granny" class="small" src="Granny.png">
+                <img draggable="false" id="theo" class="small" src="Theo.png">
             </div>
-            <img class="shadow" src="Shadow.png">
+            <img draggable="false" id="shadow" class="shadow" src="Shadow.png">
         </div>
     </div>
     <div class="floor"></div>
