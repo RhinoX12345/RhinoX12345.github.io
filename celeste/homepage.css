@@ -16,6 +16,9 @@
     height: fit-content;
     z-index: 3;
     padding: 10vh;
+    background-image: url("BackgroundImg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 
