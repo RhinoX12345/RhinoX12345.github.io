@@ -1,0 +1,56 @@
+.store {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background: linear-gradient(180deg,
+        rgba(23, 29, 43, 1) 0%,
+        rgba(29, 38, 60, 1) 25%,
+        rgba(34, 47, 76, 1) 50%,
+        rgba(117, 56, 129, 1) 100%);
+    padding: 3% 3%;
+}
+
+.store .store-header {
+    width: auto;
+    font-family: "Jaini-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 10vh;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.store .links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 5%;
+}
+
+.images {
+    max-width: 10vw;
+    max-height: 10vw;
+    object-fit: contain;
+    margin: auto 0;
+}
+
+.form {
+    color: white;
+    background-color: #88888888;
+    padding: 1%;
+}
+
+.form .user-identity tr td{
+    padding: 1px;
+}
+
+.form h4 {
+    margin-top: 5%;
+}
+.form .layout-flex-down {
+    display: flex;
+    flex-direction: column;
+}
