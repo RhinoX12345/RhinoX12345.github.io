@@ -16,7 +16,7 @@
     font-family: "Cambria";
     font-size: 7vh;
     font-weight: 600;
-    height: 8vh;
+    min-height: 8vh;
     width: max-content;
     max-width: 80%;
     margin: 5% auto 1%;
