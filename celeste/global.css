@@ -66,3 +66,12 @@ a {
 .text-nav:hover {
     color: #009fff;
 }
+
+@media only screen and (max-width:800px){
+    .header {
+        height: fit-content;
+    }
+    .text-nav {
+        font-size: 3vw;
+    }
+}
