@@ -769,7 +769,8 @@
                 }
 
                 async fall(){
-                    while (getOffset(this.id).bottom>this.y){
+                    while (this.created==true){
+                        if (getOffset(this.id).bottom<=this.y){break;}
                         if (this.created==false){break;}
                         document.getElementById(this.id).style.bottom = `${getOffset(this.id).bottom-1}px`;
                         await sleep(50);

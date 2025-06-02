@@ -12,11 +12,16 @@
             }
             table{
                 color:black;
+<<<<<<< HEAD
                 border:5px solid rgb(187, 172, 159);
+=======
+                border:1px solid black;
+>>>>>>> 4eac825d668ae7a79c81946e5ee2ce5f0a08d0fa
                 border-spacing:0;
                 text-align:center;
                 font-size:20px;
             }
+<<<<<<< HEAD
             #header{
                 position: absolute;
                 top: 5vh;
@@ -44,6 +49,19 @@
             }
             td{
                 border:5px solid rgb(187, 172, 159);
+=======
+            #game #header{
+                background-color:rgb(195, 255, 217);
+                height: 60px
+            }
+            #game tr{
+                height: 60px
+            }
+            #game tr td{
+                width: 60px;
+                padding:0;
+                border:0.3px solid black;
+>>>>>>> 4eac825d668ae7a79c81946e5ee2ce5f0a08d0fa
                 text-align: center;
             }
         </style>
@@ -54,7 +72,11 @@
                 cols = 4;
                 score = 0;
                 tileColors = {
+<<<<<<< HEAD
                     0: "rgb(205, 191, 180)",
+=======
+                    0: "rgb(255, 255, 255)",
+>>>>>>> 4eac825d668ae7a79c81946e5ee2ce5f0a08d0fa
                     2: "rgb(238, 228, 218)",
                     4: "rgb(237, 223, 199)",
                     8: "rgb(242, 175, 117)",
@@ -236,7 +258,11 @@
             }
 
             function updateBoard(){
+<<<<<<< HEAD
                 document.getElementById("score").innerHTML = score;
+=======
+                document.getElementById("header2").innerHTML = score;
+>>>>>>> 4eac825d668ae7a79c81946e5ee2ce5f0a08d0fa
                 for (let i=0; i<rows; i++){
                     for (let j=0; j<cols; j++){
                         if (board[i*cols+j]!=0){
@@ -274,27 +300,50 @@
                 let rand = Math.floor(Math.random()*empty.length)%empty.length
                 chosen.push(empty[rand])
                 empty.splice(rand,1)
+<<<<<<< HEAD
                 if (Math.random()>0.5 && empty.length>0){
                     rand = Math.floor(Math.random()*empty.length)%empty.length
                     chosen.push(empty[rand])
                     empty.splice(rand,1)
                     if (Math.random()>0.5 && empty.length>0){
+=======
+                if (Math.round(Math.random())==1 && empty.length>0){
+                    rand = Math.floor(Math.random()*empty.length)%empty.length
+                    chosen.push(empty[rand])
+                    empty.splice(rand,1)
+                    if (Math.round(Math.random())==1 && empty.length>0){
+>>>>>>> 4eac825d668ae7a79c81946e5ee2ce5f0a08d0fa
                         rand = Math.floor(Math.random()*empty.length)%empty.length
                         chosen.push(empty[rand])
                         empty.splice(rand,1)
                     }
                 }
+<<<<<<< HEAD
                 for (let i of chosen){
                     let newVal = 2+Math.round(Math.random()-1/6)*2
                     board[tiles.indexOf(i)] = newVal;
                 }
                 updateBoard();
+=======
+                try{
+                    for (let i of chosen){
+                        let newVal = 2+Math.round(Math.random())*2
+                        //document.getElementById(i).innerHTML += `${newVal}`;
+                        board[tiles.indexOf(i)] = newVal;
+                        updateBoard();
+                    }
+                } catch {
+                    console.log("Die", score);
+                }
+                
+>>>>>>> 4eac825d668ae7a79c81946e5ee2ce5f0a08d0fa
             }
 
 
         </script>
     </head>
     <body onload="setup()" onkeydown="keyInput(event)">
+<<<<<<< HEAD
 
         <table id="header">
             <tr class="header">
@@ -303,6 +352,13 @@
             </tr>
         </table>
         <table id="game">
+=======
+        <table id="game">
+            <tr id="header">
+                <td id="header1" colspan="2">2048</td>
+                <td id="header2" colspan="2">Score</td>
+            </tr>
+>>>>>>> 4eac825d668ae7a79c81946e5ee2ce5f0a08d0fa
         </table>
     </body>
 </html>
