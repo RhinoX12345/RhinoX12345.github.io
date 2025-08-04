@@ -164,14 +164,16 @@
 
             function click(id){//reveals a cell
                 if (status=="InPlay"){
+                    console.log(id, "init");
                     if (document.getElementById(id).innerHTML==""){
                         if (firstClick==true){
-                            firstClick=false;
                             board_setup(id);
+                            firstClick=false;
                             click(id);
                         } else {
                             let cellNeighbors = neighbors[id];
                             if (mineCell[id]==false){
+                                console.log(id);
                                 safeCount--;
                                 let tempMine = 0;
                                 for (let i in cellNeighbors){
@@ -184,6 +186,7 @@
                                     zero_spread(cellNeighbors);
                                 }
                             } else {
+                                console.log(id);
                                 set(id,9);
                                 mineCell[id]=false;
                                 mineCount--;
@@ -262,14 +265,12 @@
 
             function zero_spread(neighbors){//if a zero cell is revealed, all neighboring cells are revealed automatically
                 for (i in neighbors){
-                    if (document.getElementById(neighbors[i]).innerHTML == "Flag"){
-                        flag(neighbors[i]);
-                    }
                     click(neighbors[i]);
                 }
             }
 
             function flag(id){//flags a cell
+                if (firstClick || minesleft<=0){return;}
                 if (document.getElementById(id).innerHTML==""){
                     minesleft--;
                     set(id,10);
@@ -318,9 +319,9 @@
     <body onload="setup()">
         <p id="safe"></p>
         <p id="mineleft"></p>
-        Board Size: <input id="boardSize" type="number" value="8" onblur="minmax()">
+        Board Size: <input id="boardSize" type="number" value="8" onchange="minmax()">
         <br><br>
-        Mine %: <input id="minePer" type="number" value="15" onblur="minmax()">
+        Mine %: <input id="minePer" type="number" value="15" onchange="minmax()">
         <button onclick="setup()">Load</button>
         <br><br>
         <table id="board">
