@@ -166,9 +166,9 @@
                 if (status=="InPlay"){
                     if (document.getElementById(id).innerHTML==""){
                         if (firstClick==true){
-                            firstClick=false;
                             board_setup(id);
                             click(id);
+                            firstClick=false;
                         } else {
                             let cellNeighbors = neighbors[id];
                             if (mineCell[id]==false){
