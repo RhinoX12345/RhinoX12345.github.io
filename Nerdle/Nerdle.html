@@ -38,16 +38,14 @@
         </style>
         <script>
             let possibleAnswers = ["8*3-5=19","37*4=148","7*8/4=14","42/3/2=7"]
-            let cells=[], selectedCell="00", attempts = 1,eqLen = 1, currentAttempt = 1, currentAnswerId = 0;
+            let cells=[], selectedCell="00", attempts = 1, eqLen = 1, currentAttempt = 1, currentAnswerId = 0;
 
             function pageLoad(){
                 setup(6,8);
             }
 
             function setup(att=6, len=8){
-                eqLen = len;
-                attempts = att;
-                currentAttempt = 1;
+                selectedCell = "00", attempts = att, eqLen = len, currentAttempt = 1, cells=[];
                 currentAnswerId = Math.floor(Math.random()*possibleAnswers.length)%possibleAnswers.length;
                 document.getElementById("board").innerHTML="";
                 for (let i=0; i<attempts; i++){
@@ -212,7 +210,7 @@
         </script>
     </head>
     <body onload="pageLoad()" onkeydown="keyInput(event)">
-        <button onclick="setup(6,8)">Load</button>
+        <button onclick="setup()">Load</button>
         <br><br>
         <table id="board"></table>
         <table id="inputs">
